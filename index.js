@@ -1,22 +1,68 @@
-let f = document.querySelector('.block');
-let button = document.createElement('button');
-let input = document.querySelector('.input');
-let elem = document.createElement('li');
+let elForm = document.querySelector('.block');
+let userName = document.querySelector('.inputName');
+let password = document.querySelector('.inputPass');
+let text1 = document.querySelector('.la');
+let text2 = document.querySelector('.la2');
+let h2 = document.querySelector('h2');
 
-let arr = [];
-function form(){
-    elem.setAttribute('class', 'elemList')
-    document.body.appendChild(elem);
-    f.appendChild(button);
-    button.textContent = 'Button'
-}
-form();
-button.addEventListener('click',(e) => {
+let arr = ['rtt110','elbek1013','dev007','frontend2000'];
+
+elForm.addEventListener('submit',(e) => {
     e.preventDefault();
 
-    if(input.value.length > 0){
-        arr.push(input.value) + ' ';
+   h2.style.color = 'green';
+   h2.textContent = "Ro'yxatdan o'tdingiz!";
+});
+
+userName.textContent.toLowerCase();
+
+userName.addEventListener('keyup',e => {
+        if(userName.value.length < 5){
+            text1.style.color = 'red';
+            text1.style.visibility = 'visible'
+            userName.style.borderColor = 'red';
+            text1.textContent = 'harf 5 tadan kam';
+        }
+        else if(userName.value.length >= 5){
+            userName.style.borderColor = 'green';
+            text1.textContent = 'Bu joy bosh';
+            text1.style.color = 'green';
+        }
+
+        arr.forEach(el => {
+            if(userName.value == el){
+                text1.style.color = 'red';
+                text1.textContent = 'Bunday foydalanuvchi bor!';
+                userName.style.borderColor = 'red';
+            }
+        });
+        
+        if(userName.value == 0){
+            userName.style.borderColor = '';
+            text1.style.visibility = 'hidden';
+        }
     }
-    elem.textContent = arr;
- });
- console.log(arr);
+
+);
+
+password.addEventListener('keyup',e => {
+    for(let i = 0;i < arr.length;i++){
+        if(password.value.length < 5){
+            text2.style.color = 'red';
+            password.style.borderColor = 'red';
+            text2.style.visibility = 'visible';
+            text2.textContent = 'harf 5 tadan kam';
+        }
+        else if(password.value.length >= 5){
+            password.style.borderColor = 'green';
+            text2.style.color = 'green';
+            text2.style.visibility = 'hidden';
+        }
+        
+        if(password.value == 0){
+            password.style.borderColor = '';
+            text2.style.visibility = 'hidden';
+        }
+    };
+
+});
