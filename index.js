@@ -5,13 +5,17 @@ let text1 = document.querySelector('.la');
 let text2 = document.querySelector('.la2');
 let h2 = document.querySelector('h2');
 
-let arr = ['rtt110','elbek1013','dev007','frontend2000'];
+let arr = ['rrt0110','goodmoon_11','blackmi_1','izob1lie666'];
 
 elForm.addEventListener('submit',(e) => {
     e.preventDefault();
 
    h2.style.color = 'green';
    h2.textContent = "Ro'yxatdan o'tdingiz!";
+
+   if(userName.value.length >= 5){
+    arr.push(userName.value);
+   }
 });
 
 userName.textContent.toLowerCase();
@@ -66,3 +70,23 @@ password.addEventListener('keyup',e => {
     };
 
 });
+
+let ul = document.querySelector('ul');
+
+
+// let arr = ['olma','behi','anor','uzum'];
+
+// for(let i = arr.length - 1;i >= 0;i--){
+//     let newLi = document.createElement('li');
+//     newLi.textContent = arr[i];
+//     ul.appendChild(newLi);
+// }
+
+
+// //--------------------
+
+// for(let i = 1;i <= 10;i++){
+//     let res = '';
+//     res = i + i;
+//     console.log(res)
+// }
